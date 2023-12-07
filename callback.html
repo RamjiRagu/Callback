@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #countdown {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #message {
+      font-size: 32px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="countdown">Countdown will appear here...</div>
+  <div id="message"></div>
+
+  <script>
+    function countdownFromTen(callback) {
+      let count = 10;
+
+      function next() {
+        if (count >= 1) {
+          document.getElementById('countdown').textContent = count;
+          count--;
+          setTimeout(next, 1000);
+        } else {
+          callback();
+        }
+      }
+
+      next();
+    }
+
+    function displayMessage() {
+      document.getElementById('message').textContent = "Happy Independence Day!";
+    }
+
+    countdownFromTen(displayMessage);
+  </script>
+
+</body>
+</html>
